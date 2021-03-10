@@ -4,6 +4,7 @@ from playLA.Vector import Vector
 if __name__ == '__main__':
     vec = Vector([5, 2])
     print(vec)
+    print(type(vec))
     print('vec length：', len(vec))
     print('vec[0] = {}, vec[1] = {}'.format(vec[0], vec[1]))
 
@@ -32,4 +33,4 @@ if __name__ == '__main__':
     except ZeroDivisionError:
         print('Cannot normalize zero vector {}'.format(zero2))
 
-    print(vec.dot(vec2))
+    print('{}.dot({}) = {}'.format(vec, vec2, vec.dot(vec2)))
