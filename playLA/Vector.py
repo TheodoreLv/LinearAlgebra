@@ -13,15 +13,21 @@ class Vector(object):
         """返回dim维零向量"""
         return cls([0] * dim)
 
+    @property
     def norm(self):
         """返回向量的模"""
         return math.sqrt(sum(e**2 for e in self))
 
+    @property
     def normalize(self):
         """返回单位向量"""
-        if self.norm() < EPSILON:
+        if self.norm < EPSILON:
             raise ZeroDivisionError("Normalize error! norm is zero.")
-        return Vector(self._values) / self.norm()
+        return Vector(self._values) / self.norm
+
+    @property
+    def list(self):
+        return list(self._values)
 
     def __add__(self, other):
         """向量加法"""
@@ -66,7 +72,7 @@ class Vector(object):
         return len(self._values)
 
     def __repr__(self):
-        return 'playLA({})'.format(self._values)
+        return 'Vector({})'.format(self._values)
 
     def __str__(self):
-        return '({})'.format(', '.join(str(e) for e in self._values))
+        return 'Vector([{}])'.format(', '.join(str(e) for e in self._values))
